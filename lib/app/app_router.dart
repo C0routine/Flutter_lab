@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutterlab/app/dart_route.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:flutterlab/app/flutter_route.dart';
+import 'package:flutterlab/tab/dart_route.dart';
+import 'package:flutterlab/tab/flutter_route.dart';
 import 'package:flutterlab/widgets/root_route_bottom_navigation_bar.dart';
+
+/// AppRouter path, name 정의
+enum AppRouter {
+  // flutter routes
+  flutter(path: '/flutter'),
+  valueListenableBuilder(path: '/valueListenableBuilder'),
+
+  // dart routes
+  dart(path: '/dart');
+
+  final String path;
+
+  const AppRouter({required this.path});
+}
 
 final GoRouter routerConfig = GoRouter(
   initialLocation: '/flutter',
@@ -16,7 +30,8 @@ final GoRouter routerConfig = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/flutter',
+              path: AppRouter.flutter.path,
+              name: AppRouter.flutter.name,
               builder: (BuildContext context, GoRouterState state) {
                 return const FlutterRoute();
               },
@@ -27,7 +42,8 @@ final GoRouter routerConfig = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/dart',
+              path: AppRouter.dart.path,
+              name: AppRouter.dart.name,
               builder: (BuildContext context, GoRouterState state) {
                 return const DartRoute();
               },
