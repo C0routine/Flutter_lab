@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutterlab/widgets/valuenotifier_lab.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:flutterlab/tab/dart_route.dart';
 import 'package:flutterlab/tab/flutter_route.dart';
-import 'package:flutterlab/widgets/root_route_bottom_navigation_bar.dart';
+import 'package:flutterlab/tab/root_route_bottom_navigation_bar.dart';
 
 /// AppRouter path, name 정의
 enum AppRouter {
   // flutter routes
   flutter(path: '/flutter'),
-  valueListenableBuilder(path: '/valueListenableBuilder'),
+  valueNotifier(path: '/flutter/valueNotifier'),
 
   // dart routes
   dart(path: '/dart');
 
+  // navigation 에서만 사용, router 정의에는 사용하지 말것.
   final String path;
 
   const AppRouter({required this.path});
@@ -35,7 +37,15 @@ final GoRouter routerConfig = GoRouter(
               builder: (BuildContext context, GoRouterState state) {
                 return const FlutterRoute();
               },
-              routes: [],
+              routes: [
+                GoRoute(
+                  path: AppRouter.valueNotifier.name,
+                  name: AppRouter.valueNotifier.name,
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const LabValueNotifier();
+                  },
+                ),
+              ],
             ),
           ],
         ),

@@ -11,7 +11,8 @@ class FlutterRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<AppRouter> flutterList = [
-      AppRouter.valueListenableBuilder,
+      // valueNotifier, ValueListenableBuilder
+      AppRouter.valueNotifier,
     ];
 
     return Scaffold(
