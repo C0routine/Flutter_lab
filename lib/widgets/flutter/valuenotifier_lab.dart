@@ -15,9 +15,7 @@ class _LabValueNotifierState extends State<LabValueNotifier> {
   final ValueNotifier<int> testValue = ValueNotifier<int>(0);
 
   // Value Change
-  testValueChange() {
-    testValue.value = testValue.value+1;
-  }
+  testValueChange() => testValue.value = testValue.value+1;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,6 @@ class _LabValueNotifierState extends State<LabValueNotifier> {
       body: SafeArea(
         child: SizedBox.expand(
           child: Column(
-            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // testValue 가 변경되지 않음.
@@ -45,7 +42,7 @@ class _LabValueNotifierState extends State<LabValueNotifier> {
                 ),
               ),
               const SizedBox(height: 10),
-              // testValue 가 변경될 때마다 빌드되므로 변경됨.
+              // testValue 가 변경될 때마다 빌드, 변경됨.
               ValueListenableBuilder(
                 valueListenable: testValue,
                 builder: (BuildContext context, value, Widget? child) {
