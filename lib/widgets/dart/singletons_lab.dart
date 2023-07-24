@@ -9,7 +9,6 @@ class LabSingletons extends StatefulWidget {
 }
 
 class _LabSingletonsState extends State<LabSingletons> {
-
   // Singleton Pattern Class Load, Hash Code, Change Value
   singletonValueLoad() {
     TestSingletons test = TestSingletons();

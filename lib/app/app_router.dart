@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterlab/widgets/flutter/statefulwidget_lab.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:flutterlab/tab/dart_route.dart';
@@ -19,6 +20,7 @@ enum AppRouter {
   valueNotifier(path: '/flutter/valueNotifier'),
   changeNotifier(path: '/flutter/changeNotifier'),
   inheritedWidget(path: '/flutter/inheritedWidget'),
+  statefulWidget(path: '/flutter/statefulWidget'),
 
   // dart routes
   dart(path: '/dart'),
@@ -59,6 +61,7 @@ final GoRouter routerConfig = GoRouter(
                 appGoRoute(AppRouter.valueNotifier, const LabValueNotifier()),
                 appGoRoute(AppRouter.changeNotifier, const LabChangeNotifier()),
                 appGoRoute(AppRouter.inheritedWidget, const LabInheritedWidget()),
+                appGoRoute(AppRouter.statefulWidget, const LabStatefulWidget()),
               ],
             ),
           ],
