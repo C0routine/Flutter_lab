@@ -10,6 +10,7 @@ import 'package:flutterlab/widgets/flutter/change_notifier_lab.dart';
 import 'package:flutterlab/widgets/flutter/inherited_widget_lab.dart';
 
 import 'package:flutterlab/widgets/dart/singletons_lab.dart';
+import 'package:flutterlab/widgets/dart/keywords.dart';
 
 /// AppRouter path, name 정의
 enum AppRouter {
@@ -21,6 +22,7 @@ enum AppRouter {
 
   // dart routes
   dart(path: '/dart'),
+  keywords(path: '/dart/keywords'),
   singletons(path: '/dart/singletons');
 
   // navigation 에서만 사용, router 정의에는 사용하지 말것.
@@ -69,6 +71,7 @@ final GoRouter routerConfig = GoRouter(
               builder: (BuildContext context, GoRouterState state) => const DartRoute(),
               routes: [
                 appGoRoute(AppRouter.singletons, const LabSingletons()),
+                appGoRoute(AppRouter.keywords, const LabKeywords()),
               ],
             ),
           ],

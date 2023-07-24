@@ -13,6 +13,8 @@ class DartRoute extends StatelessWidget {
     final List<AppRouter> dartList = [
       // Singletons pattern
       AppRouter.singletons,
+      // Class keywords
+      AppRouter.keywords,
     ];
 
     return Scaffold(
