@@ -17,6 +17,8 @@ class FlutterRoute extends StatelessWidget {
       AppRouter.changeNotifier,
       // StatefulWidget Lifecycle
       AppRouter.statefulWidget,
+      // LayoutBuilder
+      AppRouter.layoutBuilder,
     ];
 
     return Scaffold(
