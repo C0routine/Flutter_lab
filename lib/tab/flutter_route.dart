@@ -19,6 +19,8 @@ class FlutterRoute extends StatelessWidget {
       AppRouter.statefulWidget,
       // LayoutBuilder
       AppRouter.layoutBuilder,
+      // skeleton Widget Animation
+      AppRouter.skeletonAnimation,
     ];
 
     return Scaffold(

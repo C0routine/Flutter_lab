@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterlab/widgets/flutter/layoutbuilder_lab.dart';
+import 'package:flutterlab/widgets/flutter/skeleton_animation_lab.dart';
 import 'package:flutterlab/widgets/flutter/statefulwidget_lab.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,6 +24,7 @@ enum AppRouter {
   inheritedWidget(path: '/flutter/inheritedWidget'),
   statefulWidget(path: '/flutter/statefulWidget'),
   layoutBuilder(path: '/flutter/layoutBuilder'),
+  skeletonAnimation(path: '/flutter/skeletonAnimation'),
 
   // dart routes
   dart(path: '/dart'),
@@ -65,6 +67,7 @@ final GoRouter routerConfig = GoRouter(
                 appGoRoute(AppRouter.inheritedWidget, const LabInheritedWidget()),
                 appGoRoute(AppRouter.statefulWidget, const LabStatefulWidget()),
                 appGoRoute(AppRouter.layoutBuilder, const LabLayoutBuilder()),
+                appGoRoute(AppRouter.skeletonAnimation, const LabSkeletonAnimation()),
               ],
             ),
           ],
