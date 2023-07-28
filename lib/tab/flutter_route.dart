@@ -21,6 +21,8 @@ class FlutterRoute extends StatelessWidget {
       AppRouter.layoutBuilder,
       // skeleton Widget Animation
       AppRouter.skeletonAnimation,
+      // Flutter State Management BLoC
+      AppRouter.flutterBloc,
     ];
 
     return Scaffold(
