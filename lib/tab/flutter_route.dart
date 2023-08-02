@@ -23,6 +23,8 @@ class FlutterRoute extends StatelessWidget {
       AppRouter.skeletonAnimation,
       // Flutter State Management BLoC
       AppRouter.flutterBloc,
+      // Firebase Analytics
+      AppRouter.firebaseAnalytics,
     ];
 
     return Scaffold(

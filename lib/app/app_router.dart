@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterlab/widgets/flutter/firebase_analytics_lab.dart';
 import 'package:flutterlab/widgets/flutter/flutter_bloc_lab.dart';
 import 'package:flutterlab/widgets/flutter/layoutbuilder_lab.dart';
 import 'package:flutterlab/widgets/flutter/skeleton_animation_lab.dart';
@@ -27,6 +28,7 @@ enum AppRouter {
   layoutBuilder(path: '/flutter/layoutBuilder'),
   skeletonAnimation(path: '/flutter/skeletonAnimation'),
   flutterBloc(path: '/flutter/flutterBloc'),
+  firebaseAnalytics(path: '/flutter/firebaseAnalytics'),
 
   // dart routes
   dart(path: '/dart'),
@@ -71,6 +73,7 @@ final GoRouter routerConfig = GoRouter(
                 appGoRoute(AppRouter.layoutBuilder, const LabLayoutBuilder()),
                 appGoRoute(AppRouter.skeletonAnimation, const LabSkeletonAnimation()),
                 appGoRoute(AppRouter.flutterBloc, const LabFlutterBloc()),
+                appGoRoute(AppRouter.firebaseAnalytics, const LabFirebaseAnalytics()),
               ],
             ),
           ],
