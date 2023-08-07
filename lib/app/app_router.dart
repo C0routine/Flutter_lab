@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterlab/widgets/flutter/firebase_analytics_lab.dart';
+import 'package:flutterlab/widgets/flutter/firebase_remote_config_lab.dart';
 import 'package:flutterlab/widgets/flutter/flutter_bloc_lab.dart';
 import 'package:flutterlab/widgets/flutter/layoutbuilder_lab.dart';
 import 'package:flutterlab/widgets/flutter/skeleton_animation_lab.dart';
@@ -29,6 +30,7 @@ enum AppRouter {
   skeletonAnimation(path: '/flutter/skeletonAnimation'),
   flutterBloc(path: '/flutter/flutterBloc'),
   firebaseAnalytics(path: '/flutter/firebaseAnalytics'),
+  firebaseRemoteConfig(path: '/flutter/firebaseRemoteConfig'),
 
   // dart routes
   dart(path: '/dart'),
@@ -74,6 +76,7 @@ final GoRouter routerConfig = GoRouter(
                 appGoRoute(AppRouter.skeletonAnimation, const LabSkeletonAnimation()),
                 appGoRoute(AppRouter.flutterBloc, const LabFlutterBloc()),
                 appGoRoute(AppRouter.firebaseAnalytics, const LabFirebaseAnalytics()),
+                appGoRoute(AppRouter.firebaseRemoteConfig, const LabFirebaseRemoteConfig()),
               ],
             ),
           ],

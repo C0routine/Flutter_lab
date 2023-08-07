@@ -25,6 +25,8 @@ class FlutterRoute extends StatelessWidget {
       AppRouter.flutterBloc,
       // Firebase Analytics
       AppRouter.firebaseAnalytics,
+      // Firebase Remote Config
+      AppRouter.firebaseRemoteConfig
     ];
 
     return Scaffold(
