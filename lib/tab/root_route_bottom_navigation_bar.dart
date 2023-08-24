@@ -22,7 +22,8 @@ class RootRouteBottomNavigationBar extends StatelessWidget {
         unselectedIconTheme: const IconThemeData(size: 22),
         items: const [
           BottomNavigationBarItem(icon: FlutterLogo(), label: 'Flutter'),
-          BottomNavigationBarItem(icon: Icon(Icons.developer_mode), label: 'Dart'),
+          BottomNavigationBarItem(icon: Icon(Icons.code_outlined), label: 'Dart'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_tree_outlined), label: 'State Manager'),
         ],
       ),
     );

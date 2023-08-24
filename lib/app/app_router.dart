@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutterlab/widgets/state_management/bloc/counter/view/counter_page.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:flutterlab/tab/dart_route.dart';
+import 'package:flutterlab/tab/flutter_route.dart';
+import 'package:flutterlab/tab/state_management_route.dart';
+import 'package:flutterlab/tab/root_route_bottom_navigation_bar.dart';
+
 import 'package:flutterlab/widgets/flutter/firebase_analytics_lab.dart';
 import 'package:flutterlab/widgets/flutter/firebase_remote_config_lab.dart';
 import 'package:flutterlab/widgets/flutter/flutter_bloc_lab.dart';
 import 'package:flutterlab/widgets/flutter/layoutbuilder_lab.dart';
 import 'package:flutterlab/widgets/flutter/skeleton_animation_lab.dart';
 import 'package:flutterlab/widgets/flutter/statefulwidget_lab.dart';
-import 'package:go_router/go_router.dart';
-
-import 'package:flutterlab/tab/dart_route.dart';
-import 'package:flutterlab/tab/flutter_route.dart';
-import 'package:flutterlab/tab/root_route_bottom_navigation_bar.dart';
-
 import 'package:flutterlab/widgets/flutter/valuenotifier_lab.dart';
 import 'package:flutterlab/widgets/flutter/change_notifier_lab.dart';
 import 'package:flutterlab/widgets/flutter/inherited_widget_lab.dart';
 
 import 'package:flutterlab/widgets/dart/singletons_lab.dart';
 import 'package:flutterlab/widgets/dart/keywords.dart';
+
+import 'package:flutterlab/widgets/state_management/bloc/bloc_main.dart';
+import 'package:flutterlab/widgets/state_management/getx/getx_main.dart';
+import 'package:flutterlab/widgets/state_management/provider/provider_main.dart';
 
 /// AppRouter path, name 정의
 enum AppRouter {
@@ -35,7 +41,16 @@ enum AppRouter {
   // dart routes
   dart(path: '/dart'),
   keywords(path: '/dart/keywords'),
-  singletons(path: '/dart/singletons');
+  singletons(path: '/dart/singletons'),
+
+  // State Management Routes
+  stateManagement(path: '/stateManagement'),
+  // BLoC
+  bloc(path: '/stateManagement/bloc'),
+  cubitCounter(path: '/stateManagement/bloc/cubitCounter'),
+  getX(path: '/stateManagement/getX'),
+  provider(path: '/stateManagement/provider'),
+  temp(path: '/tempPath');
 
   // navigation 에서만 사용, router 정의에는 사용하지 말것.
   final String path;
@@ -61,6 +76,7 @@ final GoRouter routerConfig = GoRouter(
         return RootRouteBottomNavigationBar(shell: navigationShell);
       },
       branches: [
+        // Flutter
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -81,6 +97,8 @@ final GoRouter routerConfig = GoRouter(
             ),
           ],
         ),
+
+        // Dart
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -90,6 +108,36 @@ final GoRouter routerConfig = GoRouter(
               routes: [
                 appGoRoute(AppRouter.singletons, const LabSingletons()),
                 appGoRoute(AppRouter.keywords, const LabKeywords()),
+              ],
+            ),
+          ],
+        ),
+
+        // State Management
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: AppRouter.stateManagement.path,
+              name: AppRouter.stateManagement.name,
+              builder: (BuildContext context, GoRouterState state) => const StateManagement(),
+              routes: [
+                appGoRoute(
+                  AppRouter.bloc,
+                  const StateBlocMain(),
+                  routes: [
+                    appGoRoute(AppRouter.cubitCounter, const CounterPage()),
+                  ],
+                ),
+                appGoRoute(
+                  AppRouter.getX,
+                  const StateGetXMain(),
+                  routes: [],
+                ),
+                appGoRoute(
+                  AppRouter.provider,
+                  const StateProviderMain(),
+                  routes: [],
+                ),
               ],
             ),
           ],
