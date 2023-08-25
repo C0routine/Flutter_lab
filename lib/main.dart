@@ -10,7 +10,7 @@ import 'package:flutterlab/app/app_firebase_options.dart';
 
 void main() async {
   // BLoC Observer
-  Bloc.observer = AppObserver();
+  Bloc.observer = BlocStateObserver();
 
   // Firebase init
   WidgetsFlutterBinding.ensureInitialized();

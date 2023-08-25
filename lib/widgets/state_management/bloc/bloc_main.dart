@@ -13,6 +13,7 @@ class StateBlocMain extends StatelessWidget {
     final List<AppRouter> stateList = [
       // AppRouter.bloc,
       AppRouter.cubitCounter,
+      AppRouter.blocTimer,
     ];
 
     return Scaffold(

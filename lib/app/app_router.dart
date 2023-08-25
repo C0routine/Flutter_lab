@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterlab/widgets/state_management/bloc/counter/view/counter_page.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:flutterlab/tab/dart_route.dart';
@@ -23,6 +22,9 @@ import 'package:flutterlab/widgets/dart/keywords.dart';
 import 'package:flutterlab/widgets/state_management/bloc/bloc_main.dart';
 import 'package:flutterlab/widgets/state_management/getx/getx_main.dart';
 import 'package:flutterlab/widgets/state_management/provider/provider_main.dart';
+
+import 'package:flutterlab/widgets/state_management/bloc/counter/counter.dart';
+import 'package:flutterlab/widgets/state_management/bloc/timer/timer.dart';
 
 /// AppRouter path, name 정의
 enum AppRouter {
@@ -48,6 +50,9 @@ enum AppRouter {
   // BLoC
   bloc(path: '/stateManagement/bloc'),
   cubitCounter(path: '/stateManagement/bloc/cubitCounter'),
+  blocTimer(path: '/stateManagement/bloc/blocTimer'),
+
+  // GetX
   getX(path: '/stateManagement/getX'),
   provider(path: '/stateManagement/provider'),
   temp(path: '/tempPath');
@@ -126,6 +131,7 @@ final GoRouter routerConfig = GoRouter(
                   const StateBlocMain(),
                   routes: [
                     appGoRoute(AppRouter.cubitCounter, const CounterPage()),
+                    appGoRoute(AppRouter.blocTimer, const TimerPage()),
                   ],
                 ),
                 appGoRoute(

@@ -38,6 +38,13 @@ class CounterView extends StatelessWidget {
             backgroundColor: AppColor.lightSubBackground,
             child: const Icon(Icons.remove),
           ),
+          const SizedBox(width: 30),
+          FloatingActionButton(
+            heroTag: 'FloatingActionButton - errorTrigger',
+            onPressed: () => context.read<CounterCubit>().errorTrigger(),
+            backgroundColor: AppColor.lightSubBackground,
+            child: const Icon(Icons.error_outline),
+          ),
         ],
       ),
     );
